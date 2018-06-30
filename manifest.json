@@ -1,0 +1,14 @@
+{
+    "name": "webcastview",
+    "version": "0.1",
+    "description": "A better way to view your webcasts!",
+    "options_page": "options.html",
+    "permissions": ["activeTab", "declarativeContent", "storage"],
+    "manifest_version": 2,
+    "content_scripts": [{
+              "all_frames": true,
+              "matches": [ "http://*/*", "https://*/*"],
+              "js":  [ "logic.js" ]
+            }
+          ]
+        }
