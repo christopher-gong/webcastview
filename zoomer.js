@@ -2,11 +2,13 @@ chrome.extension.sendMessage({}, function(response) {
     console.log("hello world!");
     //alert("test alert");
 
+    var metaContents = document.getElementsByClassName('yt-simple-endpoint style-scope yt-formatted-string')
     var videoTags = document.getElementsByTagName('video');
     videoTags.forEach = Array.prototype.forEach;
     var zoomLevels = ["left", "right", "reset"];
     var zoomLevel;
     var fullscreen = false;
+    console.log(metaContents)
     
     function act(zL) {
         videoTags.forEach(function(v) {
@@ -51,7 +53,11 @@ chrome.extension.sendMessage({}, function(response) {
         //fullscreenCheck()
         e = e || window.event;
         if (e.keyCode === 83) {//key is 's'
-            zoomLevel = zoomLevels[(zoomLevels.indexOf(zoomLevel) + 1) % zoomLevels.length]
+            if (metaContents[0].innerHTML === 'Webcast Departmental') {
+                zoomLevel = zoomLevels[(zoomLevels.indexOf(zoomLevel) + 1) % zoomLevels.length]
+            } else {
+                alert("Sorry, zooming is only supported for Berkeley webcasts.")
+            }
             //go to next zoomlevel
         }
         act(zoomLevel)
