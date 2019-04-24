@@ -26,6 +26,7 @@ chrome.extension.sendMessage({}, function(response) {
                 } else {
                     v.style.top = '0px'
                 }
+                v.style.top = '0px'
             }
             else if (zL === "right") {
                 console.log('right')
@@ -37,6 +38,7 @@ chrome.extension.sendMessage({}, function(response) {
                 } else {
                     v.style.top = '0px'
                 }
+                v.style.top = '0px'
             }
             else if (zL === "reset") {
                 console.log('reset')
@@ -48,6 +50,7 @@ chrome.extension.sendMessage({}, function(response) {
                     v.style.top = transform(v.style.height)
                 }
                 v.style.transform = 'translateX(0px)'
+                v.style.top = '0px'
             }
             
      })
@@ -58,6 +61,7 @@ chrome.extension.sendMessage({}, function(response) {
         //fullscreenCheck()
         e = e || window.event;
         if (e.keyCode === 83) {//key is 's'
+            console.log('s pressed')
             if (metaContents[0].innerHTML === 'Webcast Departmental') {
                 zoomLevel = zoomLevels[(zoomLevels.indexOf(zoomLevel) + 1) % zoomLevels.length]
             } else if (likeButton.length > 0) { //if there is a "like" button (yt video page) and it is not a berkeley webcast
